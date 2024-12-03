@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry Potter Quiz</title>
+    <link rel="stylesheet" href="index.css">
+    <script defer src="./Questions.js"></script>
+    <script defer src="./app.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alike+Angular&display=swap" rel="stylesheet">
+</head>
+<dialog>
+    <button autofocus>Rules</button>
+    <p>Welcome to the Harry Potter Quiz!
+        1. Choose your answer for each question from the 3 options provided.
+        2. If you get the answer correct you will progress to the next level.
+        3. If you answer incorrectly you will loose a Horcrux.
+        4. If you get to level 10 with a Horcrux remaining you will win.
+        5. If you loose all 3 Horcruxes, you loose - Avada Kadavra!
+    </p>
+  </dialog>
+  <button>Game Rules</button>
+<body>
+    <h1>Harry Potter Quiz</h1>
+
+    <h2 id="messageLevel">Level Info</h2>
+    <h2 id="messageLives">Lives info</h2>
+
+    <p id="Questions">Question Info</p>
+
+    <Section class ="answers"> 
+        <div class="box" id = 0> Answer 1</div>
+        <div class="box" id = 0> Answer 2</div>
+        <div class="box" id = 0> Answer 3</div>
+    </Section>
+
+</body>
+</html>
