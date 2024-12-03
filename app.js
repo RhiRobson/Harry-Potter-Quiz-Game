@@ -1,5 +1,5 @@
 /* Pseudocode for Quizgame
-1. Set up game home page
+1. Set up game home page - complete
 2.Set up game rules to show when you click on Gmae rules buttom
 3.link level info
 4.link lives info
@@ -25,11 +25,11 @@ let level;
 
 let lives;
 
-let question;
-
 let answer;
 
 let options;
+
+let winner;
 
 /*------------------------ Cached Element References ------------------------*/
 
@@ -40,15 +40,40 @@ const closeButton = document.querySelector("#dialog button");
 
 //levels and lives
 const messageLevelElement = document.querySelectorAll("#messageLevel")
+//console.log(messageLevelElement)
 
 const messageLivesElement = document.querySelectorAll("#messageLives")
-
+//console.log(messageLivesElement)
 //questions
-const questionsElement = document.querySelectorAll("#questions")
 
+const questionsElement = document.querySelectorAll("#questions")
+//console.log(questionsElement)
+
+//answers
+const answerElements = document.querySelectorAll(".box")
+//console.log(answerElements)
 /*-------------------------------- Functions --------------------------------*/
 
 
+
+
+
+
+const render = () => {
+
+}
+
+const init = () => {
+    console.log("init");
+    level = 1;
+    lives = 3;
+    answer = [" ", " ", " ",]
+    winner = false;
+    render();
+    //updatelives();
+    //updatelevel();
+}
+init()
 
 /*----------------------------- Event Listeners -----------------------------*/
 /*showButton.addEventListener("click", () => {
