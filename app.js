@@ -33,10 +33,17 @@ let options;
 
 /*------------------------ Cached Element References ------------------------*/
 
+//button info
+const dialog = document.querySelector("#dialog");
+const showButton = document.querySelector("#dialog + button");
+const closeButton = document.querySelector("#dialog button");
+
+//levels and lives
 const messageLevelElement = document.querySelectorAll("#messageLevel")
 
 const messageLivesElement = document.querySelectorAll("#messageLives")
 
+//questions
 const questionsElement = document.querySelectorAll("#questions")
 
 /*-------------------------------- Functions --------------------------------*/
@@ -44,6 +51,14 @@ const questionsElement = document.querySelectorAll("#questions")
 
 
 /*----------------------------- Event Listeners -----------------------------*/
+/*showButton.addEventListener("click", () => {
+    dialog.showModal();
+    console.log("button click")
+  });
 
+closeButton.addEventListener("click", () => {
+    dialog.close();
+  }); 
+  */
 
 
