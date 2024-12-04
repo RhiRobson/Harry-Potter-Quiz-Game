@@ -1,11 +1,12 @@
 /* Pseudocode for Quizgame
 1. Set up game home page - complete
 2.Set up game rules to show when you click on Gmae rules buttom -complete
-5.link question info - complete
-6.link answers to boxes - complete
-3.link level info
-4.link lives info
-7.Set up loop for game play
+3.link question info - complete
+4.link answers to boxes - complete
+5. Set up clicker
+6.link level info
+7.link lives info
+8.Set up loop for game play
     - page loads question
     - player clicks anser
     - if correct move to next question
@@ -17,7 +18,7 @@
 
 /*-------------------------------- Constants --------------------------------*/
 
-
+let boxIndex;
 
 /*---------------------------- Variables (state) ----------------------------*/
 
@@ -68,7 +69,13 @@ answerElements.forEach((box, index) => {
     box.textContent = answersArray[index];
 })
 
-
+//turn method
+const chooseAnswer = (event) => {
+    console.log(event);
+    //const boxIndex = event.target.id;
+    
+    
+}
 
 const render = () => {
 
@@ -98,4 +105,8 @@ closeButton.addEventListener("click", () => {
   }); 
 
 
+//Click on answers
 
+answerElements.forEach((box) => {
+    box.addEventListener('click', chooseAnswer)
+})
