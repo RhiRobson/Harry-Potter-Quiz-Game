@@ -34,9 +34,9 @@ let winner;
 /*------------------------ Cached Element References ------------------------*/
 
 //button info
-const dialog = document.querySelector("#dialog");
-const showButton = document.querySelector("#dialog + button");
-const closeButton = document.querySelector("#dialog button");
+const dialog = document.querySelector("dialog");
+const showButton = document.querySelector("dialog + button");
+const closeButton = document.querySelector("dialog button");
 
 //levels and lives
 const messageLevelElement = document.querySelectorAll("#messageLevel")
@@ -76,7 +76,7 @@ const init = () => {
 init()
 
 /*----------------------------- Event Listeners -----------------------------*/
-/*showButton.addEventListener("click", () => {
+showButton.addEventListener("click", () => {
     dialog.showModal();
     console.log("button click")
   });
@@ -84,6 +84,6 @@ init()
 closeButton.addEventListener("click", () => {
     dialog.close();
   }); 
-  */
+
 
 
