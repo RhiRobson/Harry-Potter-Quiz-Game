@@ -22,19 +22,12 @@ let boxIndex;
 
 /*---------------------------- Variables (state) ----------------------------*/
 
-let level;
-
-let horcrux;
-
+let level = 1;
+let question = 0;
+let horcrux = 3;
 let answer;
-
 let box;
-
 let winner;
-
-let correct;
-
-let incorrect;
 
 /*------------------------ Cached Element References ------------------------*/
 
@@ -51,13 +44,13 @@ const horcruxElement = document.querySelector("#messageHorcrux");
 //console.log(horcruxElement)
 
 //questions
-const questionText = harryPotterQuestions[0].question0;
+const questionText = harryPotterQuestions[question].question;
 //console.log(questionText)
 const questionElement = document.querySelector("#question");
 //console.log(questionElement)
 
 //answers
-const answersArray = harryPotterQuestions[0].answers0;
+const answersArray = harryPotterQuestions[question].answers;
 //console.log(answersArray)
 const answerElements = document.querySelectorAll(".box");
 //console.log(answerElements)
@@ -71,27 +64,47 @@ questionElement.textContent = questionText;
 //answer info:
 answerElements.forEach((box, index) => {
     box.textContent = answersArray[index];
-   
 })
 
+//level info:
+levelElement.textContent = `Level: ${level}`
+
+//horcrux info:
+horcruxElement.textContent = `Horcruxes: ${horcrux}`
 
 //turn method
 const chooseAnswer = (event) => {
-    //console.log(event);
-    const boxIndex = event.target.textContent;
-    if (boxIndex === harryPotterQuestions[0].correct0) {
-        return questionElement.textContent = "Answer correct, you move up a level!";
-        return horcruxElement.textContent = `Horcrux: ${horcrux}`;
-        return levelElement.textContent = `Level: ${level++}`;
-    } else if (boxIndex !== harryPotterQuestions[0].correct0 && horcrux > 1) {
-        return questionElement.textContent = "Answer incorrect, you loose a Horcrux!";
-        return horcruxElement.textContent =`Horcrux: ${horcrux--}`;
-        return levelElement.textContent = `Level: ${level++}`;
-        return levelElement.textContent =`Level: ${level}`;
+    console.log(event);
+    const boxIndex = event.target.textContent;{
+    if (boxIndex === harryPotterQuestions[question].correct) {
+        questionElement.textContent = "Answer correct, you move up a level!";
+        level ++
+        levelElement.textContent = `Level: ${level}`;
+        answerElements.forEach((element) => {
+            element.disabled = true;
+        })
+        return levelElement.textContent;
+    } else if (boxIndex !== harryPotterQuestions[question].correct && horcrux >= 1) {
+        questionElement.textContent = "Answer incorrect, you loose a Horcrux!";
+        horcrux --
+        horcruxElement.textContent =`Horcruxes: ${horcrux}`;
+        answerElements.forEach((element) => {
+            element.disabled = true;
+        })
+        return levelElement.textContent;
     } else {
         looseGame()
-    }
+    }}
     
+}
+
+const newLevel = () => {
+    console.log("new level")
+    question ++
+    answerElements.forEach((element) => {
+        element.disabled = false;
+    })
+    chooseAnswer()
 }
 
 const render = () => {
@@ -99,14 +112,13 @@ const render = () => {
 }
 
 const looseGame = () => {
-
+    return questionElement.textContent = "No Horcruxes remain... Avada Kadavra!";
+    // play audio??
+    return;
 }
 
 const init = () => {
     //console.log("init");
-    level = 1;
-    horcrux = 3;
-    winner = false;
     render();
     //updatehorcrux();
     //updatelevel();
@@ -129,5 +141,9 @@ closeButton.addEventListener("click", () => {
 //Click on answers
 
 answerElements.forEach((box) => {
-    box.addEventListener('click', chooseAnswer)
+    box.addEventListener("click", chooseAnswer)
 })
+
+//Next Question
+
+nextQuestion.addEventListener("click", newLevel);

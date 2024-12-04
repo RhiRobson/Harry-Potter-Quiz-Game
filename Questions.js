@@ -1,8 +1,8 @@
 const harryPotterQuestions = [
     {
-        question0: "What is the name of Harry Potter's pet owl?",
-        answers0: ["Hedwig", "Scabbers", "Fang"],
-        correct0: "Hedwig"
+        question: "What is the name of Harry Potter's pet owl?",
+        answers: ["Hedwig", "Scabbers", "Fang"],
+        correct: "Hedwig"
     },
     {
         question1: "Who is the author of 'A History of Magic'?",
