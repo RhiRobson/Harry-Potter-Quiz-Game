@@ -32,6 +32,10 @@ let box;
 
 let winner;
 
+let correct;
+
+let incorrect;
+
 /*------------------------ Cached Element References ------------------------*/
 
 //button info
@@ -67,13 +71,26 @@ questionElement.textContent = questionText;
 //answer info:
 answerElements.forEach((box, index) => {
     box.textContent = answersArray[index];
+   
 })
+
 
 //turn method
 const chooseAnswer = (event) => {
-    console.log(event);
-    //const boxIndex = event.target.id;
-    
+    //console.log(event);
+    const boxIndex = event.target.textContent;
+    if (boxIndex === harryPotterQuestions[0].correct0) {
+        return questionElement.textContent = "Answer correct, you move up a level!";
+        return horcruxElement.textContent = `Horcrux: ${horcrux}`;
+        return levelElement.textContent = `Level: ${level++}`;
+    } else if (boxIndex !== harryPotterQuestions[0].correct0 && horcrux > 1) {
+        return questionElement.textContent = "Answer incorrect, you loose a Horcrux!";
+        return horcruxElement.textContent =`Horcrux: ${horcrux--}`;
+        return levelElement.textContent = `Level: ${level++}`;
+        return levelElement.textContent =`Level: ${level}`;
+    } else {
+        looseGame()
+    }
     
 }
 
@@ -81,8 +98,12 @@ const render = () => {
 
 }
 
+const looseGame = () => {
+
+}
+
 const init = () => {
-    console.log("init");
+    //console.log("init");
     level = 1;
     horcrux = 3;
     winner = false;
