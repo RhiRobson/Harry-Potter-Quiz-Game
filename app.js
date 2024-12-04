@@ -55,7 +55,7 @@ const answersArray = harryPotterQuestions[question].answers;
 const answerElements = document.querySelectorAll(".box");
 //console.log(answerElements)
 
-
+const audio = document.getElementById('audio');
 /*-------------------------------- Functions --------------------------------*/
 
 //question info:
@@ -74,18 +74,19 @@ horcruxElement.textContent = `Horcruxes: ${horcrux}`
 
 //turn method
 const chooseAnswer = (event) => {
-    console.log(event);
     const boxIndex = event.target.textContent;{
     if (boxIndex === harryPotterQuestions[question].correct) {
-        questionElement.textContent = "Answer correct, you move up a level!";
-        level ++
-        levelElement.textContent = `Level: ${level}`;
+        questionElement.textContent = "Answer correct, 10 points to Gryffindor!!";
+        //level ++
+        //levelElement.textContent = `Level: ${level}`;
         answerElements.forEach((element) => {
             element.disabled = true;
         })
-        return levelElement.textContent;
+       return levelElement.textContent;
     } else if (boxIndex !== harryPotterQuestions[question].correct && horcrux >= 1) {
         questionElement.textContent = "Answer incorrect, you loose a Horcrux!";
+        //level ++
+        //levelElement.textContent = `Level: ${level}`;
         horcrux --
         horcruxElement.textContent =`Horcruxes: ${horcrux}`;
         answerElements.forEach((element) => {
@@ -93,27 +94,41 @@ const chooseAnswer = (event) => {
         })
         return levelElement.textContent;
     } else {
-        looseGame()
+        looseGame();
     }}
     
 }
 
 const newLevel = () => {
-    console.log("new level")
+    console.log("new level");
     question ++
+    console.log(question);
     answerElements.forEach((element) => {
         element.disabled = false;
     })
-    chooseAnswer()
+    level ++
+    levelElement.textContent = `Level: ${level}`;
+    questionElement.textContent = questionText;
+    answerElements.forEach((box, index) => {
+        box.textContent = answersArray[index];
+    })
+
 }
 
 const render = () => {
 
 }
 
+function playAudio() {
+    audio.play();
+}
+
 const looseGame = () => {
-    return questionElement.textContent = "No Horcruxes remain... Avada Kadavra!";
-    // play audio??
+    questionElement.textContent = "No Horcruxes remain... Avada Kadavra!";
+    answerElements.forEach((element) => {
+        element.disabled = true;
+    })
+    audio.play()
     return;
 }
 
@@ -147,3 +162,5 @@ answerElements.forEach((box) => {
 //Next Question
 
 nextQuestion.addEventListener("click", newLevel);
+
+//closeNextQuestion.addEventListener("click", button.disabled) --???
