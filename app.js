@@ -1,10 +1,10 @@
 /* Pseudocode for Quizgame
 1. Set up game home page - complete
-2.Set up game rules to show when you click on Gmae rules buttom
+2.Set up game rules to show when you click on Gmae rules buttom -complete
+5.link question info - complete
+6.link answers to boxes - complete
 3.link level info
 4.link lives info
-5.link question info
-6.link answers to boxes
 7.Set up loop for game play
     - page loads question
     - player clicks anser
@@ -23,11 +23,11 @@
 
 let level;
 
-let lives;
+let horcrux;
 
 let answer;
 
-let options;
+let box;
 
 let winner;
 
@@ -38,24 +38,35 @@ const dialog = document.querySelector("dialog");
 const showButton = document.querySelector("dialog + button");
 const closeButton = document.querySelector("dialog button");
 
-//levels and lives
-const messageLevelElement = document.querySelectorAll("#messageLevel")
-//console.log(messageLevelElement)
+//level and horcruxes
+const levelElement = document.querySelector("#messageLevel");
+//console.log(levelElement)
 
-const messageLivesElement = document.querySelectorAll("#messageLives")
-//console.log(messageLivesElement)
+const horcruxElement = document.querySelector("#messageHorcrux");
+//console.log(horcruxElement)
+
 //questions
-
-const questionsElement = document.querySelectorAll("#questions")
-//console.log(questionsElement)
+const questionText = harryPotterQuestions[0].question0;
+//console.log(questionText)
+const questionElement = document.querySelector("#question");
+//console.log(questionElement)
 
 //answers
-const answerElements = document.querySelectorAll(".box")
+const answersArray = harryPotterQuestions[0].answers0;
+//console.log(answersArray)
+const answerElements = document.querySelectorAll(".box");
 //console.log(answerElements)
+
+
 /*-------------------------------- Functions --------------------------------*/
 
+//question info:
+questionElement.textContent = questionText;
 
-
+//answer info:
+answerElements.forEach((box, index) => {
+    box.textContent = answersArray[index];
+})
 
 
 
@@ -66,16 +77,17 @@ const render = () => {
 const init = () => {
     console.log("init");
     level = 1;
-    lives = 3;
-    answer = [" ", " ", " ",]
+    horcrux = 3;
     winner = false;
     render();
-    //updatelives();
+    //updatehorcrux();
     //updatelevel();
 }
 init()
 
 /*----------------------------- Event Listeners -----------------------------*/
+
+//Button listeners
 showButton.addEventListener("click", () => {
     dialog.showModal();
     console.log("button click")
