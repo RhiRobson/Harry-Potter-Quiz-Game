@@ -1,8 +1,8 @@
 /* Pseudocode for Quizgame
 1. Set up game home page - complete
 2.Set up game rules to show when you click on Gmae rules buttom -complete
-3.link question info - complete
-4.link answers to boxes - complete
+3.link question info
+4.link answers to boxes
 5. Set up clicker
 6.link level info
 7.link lives info
@@ -14,20 +14,17 @@
     - if you loose all your lives you loose the game
     - if you reach level 10 with all of your lives you win
 */
-
-
 /*-------------------------------- Constants --------------------------------*/
 
 let boxIndex;
+let answer;
+let box;
 
 /*---------------------------- Variables (state) ----------------------------*/
 
 let level = 1;
 let question = 0;
 let horcrux = 3;
-let answer;
-let box;
-let winner;
 
 /*------------------------ Cached Element References ------------------------*/
 
@@ -56,6 +53,7 @@ const answerElements = document.querySelectorAll(".box");
 //console.log(answerElements)
 
 const audio = document.getElementById('audio');
+
 /*-------------------------------- Functions --------------------------------*/
 
 //question info:
@@ -75,68 +73,67 @@ horcruxElement.textContent = `Horcruxes: ${horcrux}`
 //turn method
 const chooseAnswer = (event) => {
     const boxIndex = event.target.textContent;{
-    if (boxIndex === harryPotterQuestions[question].correct) {
+    if (boxIndex === harryPotterQuestions[question].correct && level !== 10) {
         questionElement.textContent = "Answer correct, 10 points to Gryffindor!!";
-        //level ++
-        //levelElement.textContent = `Level: ${level}`;
         answerElements.forEach((element) => {
             element.disabled = true;
         })
        return levelElement.textContent;
     } else if (boxIndex !== harryPotterQuestions[question].correct && horcrux >= 1) {
         questionElement.textContent = "Answer incorrect, you loose a Horcrux!";
-        //level ++
-        //levelElement.textContent = `Level: ${level}`;
         horcrux --
         horcruxElement.textContent =`Horcruxes: ${horcrux}`;
         answerElements.forEach((element) => {
             element.disabled = true;
         })
         return levelElement.textContent;
-    } else {
-        looseGame();
+    } else if (boxIndex === harryPotterQuestions[question].correct && level === 10) {
+        winGame(); 
+    } else if (boxIndex !== harryPotterQuestions[question].correct && horcrux === 0) {
+        looseGame(); 
     }}
-    
 }
 
 const newLevel = () => {
     console.log("new level");
     question ++
-    console.log(question);
+    const questionText = harryPotterQuestions[question].question;
+    const answersArray = harryPotterQuestions[question].answers;
     answerElements.forEach((element) => {
         element.disabled = false;
     })
     level ++
     levelElement.textContent = `Level: ${level}`;
     questionElement.textContent = questionText;
+    console.log(answerElements)
+    console.log(harryPotterQuestions)
     answerElements.forEach((box, index) => {
         box.textContent = answersArray[index];
     })
-
 }
 
-const render = () => {
-
-}
-
-function playAudio() {
-    audio.play();
+const winGame = () => {
+    console.log("win")
+    questionElement.textContent = "Congratulations you have won the House Cup!";
+    answerElements.forEach((element) => {
+        element.disabled = true;
+    });
+    nextQuestion.disabled = true;
+    audioWin.play()
+    return;
 }
 
 const looseGame = () => {
     questionElement.textContent = "No Horcruxes remain... Avada Kadavra!";
     answerElements.forEach((element) => {
         element.disabled = true;
-    })
-    audio.play()
+    });
+    nextQuestion.disabled = true;
+    audioLoose.play();
     return;
 }
 
 const init = () => {
-    //console.log("init");
-    render();
-    //updatehorcrux();
-    //updatelevel();
 }
 init()
 
@@ -152,15 +149,10 @@ closeButton.addEventListener("click", () => {
     dialog.close();
   }); 
 
-
 //Click on answers
-
 answerElements.forEach((box) => {
     box.addEventListener("click", chooseAnswer)
 })
 
 //Next Question
-
 nextQuestion.addEventListener("click", newLevel);
-
-//closeNextQuestion.addEventListener("click", button.disabled) --???
