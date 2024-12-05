@@ -10,8 +10,10 @@ Getting started:
 Deployed Game Link:
 Planning Docs Link: https://docs.google.com/document/d/1_YagT7MRnWKOpNikIzT3nNcUNsvVm_AZQ10Qkxw6Yuk/edit?usp=sharing
 
-Attributions: This section should include links to any external resources (such as libraries or assets) you used to develop your application that require attribution. You can exclude this section if it does not apply to your application.
-
+Attributions:
+Modal Buttons: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
+Adding Audio: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
+Course notes from General Assembly - Software Engineering Bootcamp Course
 Technologies used: JavaScript, HTML, CSS
 
 Next steps: Planned future enhancements (stretch goals).
