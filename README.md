@@ -6,9 +6,14 @@ A multiple choice style game with questions based on the Harry Potter Series. Th
 
 I chose to make a quiz game as I am a member of a quiz team and enjoy taking part in Pub Quizes, Harry Potter is my specialist subject so it was the ideal choice.
 
-Getting started: Include a link to your deployed game and any instructions you deem important. This should also contain a link to your planning materials.
+Getting started:
+Deployed Game Link:
+Planning Docs Link: https://docs.google.com/document/d/1_YagT7MRnWKOpNikIzT3nNcUNsvVm_AZQ10Qkxw6Yuk/edit?usp=sharing
+
 Attributions: This section should include links to any external resources (such as libraries or assets) you used to develop your application that require attribution. You can exclude this section if it does not apply to your application.
+
 Technologies used: JavaScript, HTML, CSS
+
 Next steps: Planned future enhancements (stretch goals).
 
 
