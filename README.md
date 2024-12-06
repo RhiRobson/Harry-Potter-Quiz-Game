@@ -11,11 +11,13 @@ Deployed Game Link:
 Planning Docs Link: https://docs.google.com/document/d/1_YagT7MRnWKOpNikIzT3nNcUNsvVm_AZQ10Qkxw6Yuk/edit?usp=sharing
 
 Attributions:
-Modal Buttons: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
-Adding Audio: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
-Course notes from General Assembly - Software Engineering Bootcamp Course
-Technologies used: JavaScript, HTML, CSS
+Modal Buttons: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog <br>
+Adding Audio: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio <br>
+Course notes from General Assembly - Software Engineering Bootcamp Course <br>
+Technologies used: JavaScript, HTML, CSS <br>
 
-Next steps: Planned future enhancements (stretch goals).
+Next steps: Planned future enhancements (stretch goals). <br>
+I would have loked to have had color changing in the button boxes to indicate correct and incoorect choices. <br>
+`I would also look to enhance the game buy having more questions per level as well as different varieties of questions, such as pictures and audio files. <br>
 
 
