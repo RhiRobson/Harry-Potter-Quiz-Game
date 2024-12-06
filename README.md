@@ -7,7 +7,7 @@ A multiple choice style game with questions based on the Harry Potter Series. Th
 I chose to make a quiz game as I am a member of a quiz team and I enjoy taking part in Pub Quizes, Harry Potter is my specialist subject so it was the ideal choice.
 
 Getting started: <br>
-Deployed Game Link: <br>
+Deployed Game Link: https://rhirobson.github.io/Harry-Potter-Quiz-Game/ <br>
 Planning Docs Link: https://docs.google.com/document/d/1_YagT7MRnWKOpNikIzT3nNcUNsvVm_AZQ10Qkxw6Yuk/edit?usp=sharing
 
 Attributions: <br>
@@ -17,7 +17,8 @@ Course notes from General Assembly - Software Engineering Bootcamp Course <br>
 Technologies used: JavaScript, HTML, CSS <br>
 
 Next steps: Planned future enhancements (stretch goals). <br>
-I would have loked to have had color changing in the button boxes to indicate correct and incoorect choices. <br>
+I would have liked to have had color changing in the button boxes to indicate correct and incoorect choices. <br>
+I think an improvement would also to be have a reset button rather than just refreshing the web-page. <br>
 I would also look to enhance the game by having more questions per level as well as different varieties of questions, such as pictures and audio files. <br>
 
 
